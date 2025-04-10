@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(209, 209, 209);
+  color: white;
+}
+
+.headerStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(84, 84, 84, 0.307);
+  box-shadow: 12px 12px 10px rgba(84, 84, 84, 0.205);
+  width: 100%;
+  height: 12rem;
+  margin-bottom: 10rem;
+
+  .headerLogo {
+    background-repeat: no-repeat;
+    display: flex;
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.contentArea {
+  font-size: 2rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 12rem;
+
+  .bookDisplay {
+    background-color: rgb(155, 155, 155);
+    border: 2px solid red;
+    height: 100rem;
+    width: 50rem;
+  }
+
+  .bookTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.6rem;
+    background-color: red;
+    height: 8rem;
+  }
+
+  .bookPicture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-color: blue;
+    height: 35rem;
+  }
+
+  .bookPriceLikes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 8rem;
+    width: 100%;
+    padding: 0rem 15%;
+  }
+
+  .bookInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(15, 72, 72);
+    height: 11rem;
+  }
+
+  .commentsSection {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    width: 100%;
+    height: 19.5rem;
+  }
+
+  .showUsername {
+    background-color: brown;
+    width: 100%;
+    height: rem;
+  }
+
+  .showComments {
+    background-color: rgb(93, 93, 93);
+    width: 100%;
+    height: 20rem;
+  }
+
+  .titleComments {
+    height: 4rem;
+  }
+
+  .bookImgs {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(84, 84, 84, 0.701);
+  width: 100%;
+  height: 10rem;
+}
