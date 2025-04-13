@@ -169,6 +169,10 @@ function returnContent(i) {
             <div id="title-comments-${i}" class="titleComments">
             <div id="comments-section-${i}" class="commentsSection">
             <h2>Kommentarsektion</h2>
+                </div>
+    <div id="input-area.${i}" class="inputArea"><input type="text" class="commentArea" id="comment-area-${i}" placeholder="Schreibe einen Kommentar"><button onclick="addComment(${i})">senden</button>
+ 
+    </div>
             </div>
           </div>`;
 }
@@ -176,5 +180,7 @@ function returnContent(i) {
 function returnComments(indexPosition, commentsPosition) {
   return `
     <div id="show-username-${indexPosition}" class="showUsername"><b>Username</b>: ${books[commentsPosition].comments[indexPosition].name}</div>
-    <div id="show-comments-${indexPosition}" class="showComments"><b>Kommentar:</b> ${books[commentsPosition].comments[indexPosition].comment}</div>`;
+    <div id="show-comments-${indexPosition}" class="showComments"><b>Kommentar:</b> ${books[commentsPosition].comments[indexPosition].comment}</div>
+    `
+    ;
 }

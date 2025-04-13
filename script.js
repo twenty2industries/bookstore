@@ -1,4 +1,3 @@
-
 function init() {
   returnHeader();
   renderContent();
@@ -11,6 +10,7 @@ function renderContent() {
     contentRef.innerHTML += returnContent(bookIndex);
     renderComment(bookIndex);
     toggleLike(bookIndex);
+    addComment(bookIndex);
   }
 }
 
@@ -27,7 +27,7 @@ function renderComment(commentsIndex) {
 function toggleLike(likeIndex) {
   const notLikeRef = document.getElementById(`not-like-icon-${likeIndex}`);
   const likeRef = document.getElementById(`like-icon-${likeIndex}`);
-  const likeCountRef = document.getElementById(`like-count-${likeIndex}`); // like-zahl - 
+  const likeCountRef = document.getElementById(`like-count-${likeIndex}`); // like-zahl
 
   if (notLikeRef.classList.contains("d_none")) {
     notLikeRef.classList.remove("d_none");
@@ -39,4 +39,11 @@ function toggleLike(likeIndex) {
     books[likeIndex].likes += 1;
   }
   likeCountRef.textContent = books[likeIndex].likes; // dom aktualisierung das erneute aufrufen von renderContent() sorgt für enorme bugs
+}
+
+function addComment(commentIndex) {
+  const commentRef = document.getElementById(`comment-area-${commentIndex}`);
+  valueTest = commentRef.value;
+  console.log(valueTest);
+  commentRef.value = "";
 }
