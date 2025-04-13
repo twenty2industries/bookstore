@@ -171,15 +171,22 @@ function returnContent(i) {
                 </div>
       <div id="input-area.${i}" class="inputArea">
       <input type="text" class="commentArea" id="name-area-${i}" placeholder="Schreibe einen Username">
-      <input type="text" class="commentArea" id="comment-area-${i}" placeholder="Schreibe einen Kommentar"><button onclick="addComment(${i})">senden</button>
+      <input type="text" class="commentArea" id="comment-area-${i}" placeholder="Schreibe einen Kommentar"><button onclick="addUsername(${i})">senden</button>
     </div>
   </div>
 </div>`;
 }
 
+
+function returnUsernames(indexPosition, usernamePosition) {
+  return `
+    <div id="show-username-${indexPosition}" class="showUsername"><b>Username</b>: ${books[usernamePosition].comments[indexPosition].name}</div>
+    `;
+}
+
 function returnComments(indexPosition, commentsPosition) {
   return `
-    <div id="show-username-${indexPosition}" class="showUsername"><b>Username</b>: ${books[commentsPosition].comments[indexPosition].name}</div>
     <div id="show-comments-${indexPosition}" class="showComments"><b>Kommentar:</b> ${books[commentsPosition].comments[indexPosition].comment}</div>
     `;
 }
+
