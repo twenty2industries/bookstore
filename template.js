@@ -153,7 +153,6 @@ let books = [
   },
 ];
 
-
 function returnHeader() {
   const headerLogoRef = document.getElementById("header-logo");
   return (headerLogoRef.innerHTML = `<img class="headerLogo" src="logo/bookstoreLogo.png" alt="headerlogo">`);
@@ -170,17 +169,17 @@ function returnContent(i) {
             <div id="comments-section-${i}" class="commentsSection">
             <h2>Kommentarsektion</h2>
                 </div>
-    <div id="input-area.${i}" class="inputArea"><input type="text" class="commentArea" id="comment-area-${i}" placeholder="Schreibe einen Kommentar"><button onclick="addComment(${i})">senden</button>
- 
+      <div id="input-area.${i}" class="inputArea">
+      <input type="text" class="commentArea" id="name-area-${i}" placeholder="Schreibe einen Username">
+      <input type="text" class="commentArea" id="comment-area-${i}" placeholder="Schreibe einen Kommentar"><button onclick="addComment(${i})">senden</button>
     </div>
-            </div>
-          </div>`;
+  </div>
+</div>`;
 }
 
 function returnComments(indexPosition, commentsPosition) {
   return `
     <div id="show-username-${indexPosition}" class="showUsername"><b>Username</b>: ${books[commentsPosition].comments[indexPosition].name}</div>
     <div id="show-comments-${indexPosition}" class="showComments"><b>Kommentar:</b> ${books[commentsPosition].comments[indexPosition].comment}</div>
-    `
-    ;
+    `;
 }

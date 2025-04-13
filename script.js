@@ -3,14 +3,13 @@ function init() {
   renderContent();
 }
 
-function renderContent() {
+function renderContent(newCommentIndex) {
   const contentRef = document.getElementById("content-area");
+  const commentRef = document.getElementById(`comment-area-${newCommentIndex}`);
   for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
-    const book = books[bookIndex];
     contentRef.innerHTML += returnContent(bookIndex);
     renderComment(bookIndex);
     toggleLike(bookIndex);
-    addComment(bookIndex);
   }
 }
 
@@ -19,7 +18,6 @@ function renderComment(commentsIndex) {
     `comments-section-${commentsIndex}`
   );
   for (let i = 0; i < books[commentsIndex].comments.length; i++) {
-    const element = books[commentsIndex].comments[i];
     commentsRef.innerHTML += returnComments(i, commentsIndex);
   }
 }
@@ -43,7 +41,13 @@ function toggleLike(likeIndex) {
 
 function addComment(commentIndex) {
   const commentRef = document.getElementById(`comment-area-${commentIndex}`);
-  valueTest = commentRef.value;
-  console.log(valueTest);
-  commentRef.value = "";
+  if (commentRef.value !== "") {
+    let valueTest = commentRef.value;
+    commentRef.value = "";
+    books[commentIndex].comments.push({ comment: valueTest });
+    //den neuen kommentar an das bestehende DOM-Element anhängen - löst das problem das der gesamte inhalt gerender wird.
+    const commentsRef = document.getElementById(`comments-section-${commentIndex}`);
+    const newCommentHTML = returnComments(books[commentIndex].comments.length - 1, commentIndex); //in returncomments argumente aus addcomment(); books[commentIndex].comments.length - 1 ergibt die index der neuen comments länge -1 weil index start ist 0
+    commentsRef.innerHTML += newCommentHTML;
+  }
 }
