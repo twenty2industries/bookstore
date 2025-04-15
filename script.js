@@ -1,6 +1,8 @@
 function init() {
   returnHeader();
   renderContent();
+  saveToLocalStorage();
+  getLocalStorage();
 }
 
 function renderContent(newCommentIndex) {
@@ -8,10 +10,10 @@ function renderContent(newCommentIndex) {
   for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
     contentRef.innerHTML += returnContent(bookIndex);
     renderComment(bookIndex);
-    toggleLike(bookIndex);
     fixPrice(bookIndex);
+  }
 }
-}
+
 
 function renderComment(commentsIndex) {
   const commentsRef = document.getElementById(`comments-section-${commentsIndex}`);
@@ -49,7 +51,8 @@ function addUsername(usernameIndex) {
     const usernamesRef = document.getElementById(`comments-section-${usernameIndex}`);
     const newUsernameHTML = returnUsernames(books[usernameIndex].comments.length - 1, usernameIndex);
     usernamesRef.innerHTML += newUsernameHTML;
-    addComment(usernameIndex)
+    addComment(usernameIndex);
+    saveToLocalStorage();
   }
   else{
     alert('Bitte geben Sie Username & einen Kommentar ein.')
@@ -59,7 +62,6 @@ function addUsername(usernameIndex) {
 function addComment(commentIndex) { //das argument kommt aus der function returnContent(i)
   const commentRef = document.getElementById(`comment-area-${commentIndex}`);
   if (commentRef.value !== "") {
-    let newCommentValue = commentRef.value;
     commentRef.value = "";
 /*     books[commentIndex].comments.push({ comment: newCommentValue });
  */    //den neuen kommentar an das bestehende DOM-Element anhängen - löst das problem das der gesamte inhalt gerender wird.
@@ -67,7 +69,6 @@ function addComment(commentIndex) { //das argument kommt aus der function return
     //in returncomments argumente aus addcomment(); books[commentIndex].comments.length - 1 ergibt die index der neuen comments länge -1 weil index start ist 0
     const newCommentHTML = returnComments(books[commentIndex].comments.length - 1, commentIndex); 
     commentsRef.innerHTML += newCommentHTML;
-    console.log(books[commentIndex].comments); // PROBLEM 
   }
 }
 
@@ -76,6 +77,3 @@ function fixPrice(i) {
   const price = priceRef.innerHTML.replace(",", "."); // fehler hat zeit gekostet! - nur das löschen von EUR im span hat nicht geholfen, vergessen das JS nicht mit , kann 
   priceRef.innerHTML = parseFloat(price).toFixed(2);
 }
-
-
-//layout und dann local storage: 
