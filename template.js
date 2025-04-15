@@ -3,7 +3,7 @@ let books = [
     name: "Die Geheimnisse des Ozeans",
     author: "Clara Meer",
     likes: 1250,
-    liked: true,
+    liked: false,
     price: 19.99,
     publishedYear: 2018,
     genre: "Fantasy",
@@ -40,7 +40,7 @@ let books = [
     name: "Die Farben des Himmels",
     author: "Laura Blau",
     likes: 1520,
-    liked: true,
+    liked: false,
     price: 22.95,
     publishedYear: 2019,
     genre: "Romantik",
@@ -121,7 +121,7 @@ let books = [
     name: "Jenseits der Sterne",
     author: "Oliver Schwarz",
     likes: 1450,
-    liked: true,
+    liked: false,
     price: 21.0,
     publishedYear: 2015,
     genre: "Science-Fiction",
@@ -176,7 +176,6 @@ function returnContent(i) {
   </div>
 </div>`;
 }
-
 
 function returnUsernames(indexPosition, usernamePosition) {
   return `
