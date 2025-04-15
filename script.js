@@ -13,6 +13,7 @@ function renderContent() {
     contentRef.innerHTML += returnContent(bookIndex);
     renderComment(bookIndex);
     fixPrice(bookIndex);
+    checkLiked(bookIndex);
   }
 }
 
@@ -55,6 +56,15 @@ function toggleLike(likeIndex) {
     books[likeIndex].liked = true;
 }
   likeCountRef.textContent = books[likeIndex].likes; // dom aktualisierung das erneute aufrufen von renderContent() sorgt für enorme bugs
+}
+
+function checkLiked(likeIndex) {
+  const notLikeRef = document.getElementById(`not-like-icon-${likeIndex}`);
+  const likeRef = document.getElementById(`like-icon-${likeIndex}`);
+  if (books[likeIndex].liked == true) {
+    likeRef.classList.remove("d_none");
+    notLikeRef.classList.add("d_none");
+  }
 }
 
 function addUsername(usernameIndex) {
