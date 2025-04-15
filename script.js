@@ -1,8 +1,7 @@
 function init() {
   returnHeader();
-  renderContent();
-  saveToLocalStorage();
   getLocalStorage();
+  renderContent();
 }
 
 function renderContent(newCommentIndex) {
@@ -69,6 +68,7 @@ function addComment(commentIndex) { //das argument kommt aus der function return
     //in returncomments argumente aus addcomment(); books[commentIndex].comments.length - 1 ergibt die index der neuen comments länge -1 weil index start ist 0
     const newCommentHTML = returnComments(books[commentIndex].comments.length - 1, commentIndex); 
     commentsRef.innerHTML += newCommentHTML;
+    saveToLocalStorage();
   }
 }
 

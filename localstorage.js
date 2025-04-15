@@ -3,5 +3,8 @@ function saveToLocalStorage(){
 }
 
 function getLocalStorage(){
-  localStorage.getItem("book")
-}
+  const storedData = localStorage.getItem("books");
+  let validStorage = JSON.parse(storedData);
+  console.log(validStorage);
+  books = validStorage;
+} 
