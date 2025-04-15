@@ -7,12 +7,10 @@
 }
 
 html {
-  height: 100%;
   font-size: 10px;
 }
 
 body {
-  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: rgb(209, 209, 209);
@@ -46,7 +44,7 @@ body {
   gap: 10rem;
   flex-wrap: wrap;
   padding-bottom: 12rem;
-  margin: 0rem 3rem;
+  margin: 0rem 20rem;
 
   .bookDisplay {
     width: 50rem;
@@ -180,13 +178,94 @@ footer {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: rgba(84, 84, 84, 0.701);
+  background-color: rgb(84, 84, 84);
   width: 100%;
   height: 10rem;
+  font-size: 1.6rem;
 }
 
 .d_none {
   display: none;
 }
 
-/* @media (max-width: 567px) {} */
+@media (max-width: 1502px) {
+  .contentArea {
+    margin: 0rem 8rem;
+  }
+}
+
+@media (max-width: 1266px) {
+  .contentArea {
+    margin: 0rem 1rem;
+  }
+}
+
+@media (max-width: 1119px) {
+  .contentArea {
+
+    .bookDisplay {
+      width: 40rem;
+    }
+
+    .bookTitle {
+      font-size: 24px;
+    }
+  }
+
+  .likeIcon {
+    margin-left: 0.5rem;
+  }
+
+}
+
+
+@media (max-width: 919px) {
+  .contentArea {
+    .bookDisplay {
+      width: 80%;
+    }
+
+    .bookPicture {
+      height: 40rem;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+
+  .currency {
+    padding-right: 19rem;
+  }
+
+  .likeIcon {
+    margin-left: 0.5rem;
+  }
+
+  .bookImgs {
+    object-fit: contain;
+  }
+
+}
+
+@media (max-width: 641px) {
+  .contentArea {
+    .bookPriceLikes {
+      padding: 0rem 3%
+    }
+  }
+}
+
+@media (max-width: 371px) {
+  .contentArea{
+    .bookInfo{
+      font-size: 1.6rem;
+    }
+    .commentsSection{
+      font-size: 1.6rem;
+    }
+    .bookPriceLikes{
+      font-size: 1.8rem;
+    }
+  }
+  }
+  .bookImgs{
+    height: 100%;
+  }

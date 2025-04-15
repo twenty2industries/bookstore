@@ -1,11 +1,11 @@
 let books = [
   {
-    name: "Die Geheimnisse des Ozeans",
-    author: "Clara Meer",
+    name: "Das Schwert der Stille",
+    author: "Lian Hearn",
     likes: 1250,
     liked: false,
     price: 19.99,
-    publishedYear: 2018,
+    publishedYear: 2003,
     genre: "Fantasy",
     img: ["picture1.jpg"],
     comments: [
@@ -29,21 +29,16 @@ let books = [
         comment:
           "Ein cleverer Science-Fiction-Roman mit interessanten Zeitreise-Konzepten und Charakteren.",
       },
-      {
-        name: "NovelLover",
-        comment:
-          "Ein Buch, das voller magischer Überraschungen steckt und mich begeistert hat.",
-      },
     ],
   },
   {
-    name: "Die Farben des Himmels",
-    author: "Laura Blau",
+    name: "Der kleine Hobbit",
+    author: "J.R.R. Tolkien",
     likes: 1520,
     liked: false,
     price: 22.95,
-    publishedYear: 2019,
-    genre: "Romantik",
+    publishedYear: 1937,
+    genre: "Fantasy",
     img: ["picture2.jpg"],
     comments: [
       {
@@ -162,7 +157,7 @@ function returnContent(i) {
   return `<div id="book-display-${i}" class="bookDisplay">
             <div id="book-title-${i}" class="bookTitle">${books[i].name}</div>
             <div id="book-picture-${i}" class="bookPicture"><img src="img/${books[i].img}" class="bookImgs"></div>
-            <div id="book-price-likes-${i}" class="bookPriceLikes"><span id="showPrice-${i}">${books[i].price} </span><span class="currency">EUR</span> <div class="likes"> <span id="like-count-${i}">${books[i].likes}</span><img src="assets/asset_not_liked.png" class="likeIcon" id="not-like-icon-${i}" onclick="toggleLike(${i})"><img src="assets/asset_liked.png" class="likeIcon d_none" onclick="toggleLike(${i})" id="like-icon-${i}">
+            <div id="book-price-likes-${i}" class="bookPriceLikes"><span id="showPrice-${i}">${books[i].price} </span><div class="likes"> <span id="like-count-${i}">${books[i].likes}</span><img src="assets/asset_not_liked.png" class="likeIcon" id="not-like-icon-${i}" onclick="toggleLike(${i})"><img src="assets/asset_liked.png" class="likeIcon d_none" onclick="toggleLike(${i})" id="like-icon-${i}">
 </div></div>
             <div id="book-info-${i}" class="bookInfo"><span>Author: ${books[i].author}</span><span>Published year: ${books[i].publishedYear}</span><span>Genre: ${books[i].genre}</span></div>
             <div id="title-comments-${i}" class="titleComments">

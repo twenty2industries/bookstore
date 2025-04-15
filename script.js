@@ -55,7 +55,8 @@ function toggleLike(likeIndex) {
     books[likeIndex].likes += 1;
     books[likeIndex].liked = true;
 }
-  likeCountRef.textContent = books[likeIndex].likes; // dom aktualisierung das erneute aufrufen von renderContent() sorgt für enorme bugs
+  likeCountRef.textContent = books[likeIndex].likes;
+  saveToLocalStorage(); // dom aktualisierung das erneute aufrufen von renderContent() sorgt für enorme bugs
 }
 
 function checkLiked(likeIndex) {
@@ -112,5 +113,5 @@ function addComment(commentIndex) {
 function fixPrice(i) {
   const priceRef = document.getElementById(`showPrice-${i}`);
   let price = priceRef.innerHTML.replace(",", "."); // javascript cant work with komma
-  priceRef.innerHTML = parseFloat(price).toFixed(2).replace(".", ",");
+  priceRef.innerHTML = parseFloat(price).toFixed(2).replace(".", ",") + ` EUR`;
 }
