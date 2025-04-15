@@ -164,9 +164,7 @@ input {
   display: flex;
   flex-direction: column;
   max-height: 62rem;
-  /*höhe vom scrollcontainer*/
   overflow-y: auto;
-  /*scrollmöglichkeit sobald die 62 rem ausgeschöpft sind */
 }
 
 .currency {

@@ -42,7 +42,7 @@ function renderComment(commentsIndex) {
 function toggleLike(likeIndex) {
   const notLikeRef = document.getElementById(`not-like-icon-${likeIndex}`);
   const likeRef = document.getElementById(`like-icon-${likeIndex}`);
-  const likeCountRef = document.getElementById(`like-count-${likeIndex}`); // like-zahl
+  const likeCountRef = document.getElementById(`like-count-${likeIndex}`);
   if (books[likeIndex].liked == true) {
     notLikeRef.classList.remove("d_none");
     likeRef.classList.add("d_none");
@@ -56,7 +56,7 @@ function toggleLike(likeIndex) {
     books[likeIndex].liked = true;
 }
   likeCountRef.textContent = books[likeIndex].likes;
-  saveToLocalStorage(); // dom aktualisierung das erneute aufrufen von renderContent() sorgt für enorme bugs
+  saveToLocalStorage();
 }
 
 function checkLiked(likeIndex) {
@@ -75,13 +75,8 @@ function addUsername(usernameIndex) {
     let newUsernameValue = usernameRef.value;
     let newCommentValue = commentRef.value;
     usernameRef.value = "";
-    books[usernameIndex].comments.push({
-      name: newUsernameValue,
-      comment: newCommentValue,
-    }); //hier muss gleich das obejct mit comment gepusht werden um kein neues object für comment in addcomment() zu erstellen
-    const usernamesRef = document.getElementById(
-      `comments-section-${usernameIndex}`
-    );
+    books[usernameIndex].comments.push({name: newUsernameValue, comment: newCommentValue}); 
+    const usernamesRef = document.getElementById(`comments-section-${usernameIndex}`);
     const newUsernameHTML = returnUsernames(
       books[usernameIndex].comments.length - 1,
       usernameIndex
@@ -95,12 +90,10 @@ function addUsername(usernameIndex) {
 }
 
 function addComment(commentIndex) {
-  //das argument kommt aus der function returnContent(i)
   const commentRef = document.getElementById(`comment-area-${commentIndex}`);
   if (commentRef.value !== "") {
     commentRef.value = "";
     const commentsRef = document.getElementById(`comments-section-${commentIndex}`);
-    //in returncomments argumente aus addcomment(); books[commentIndex].comments.length - 1 ergibt die index der neuen comments länge -1 weil index start ist 0
     const newCommentHTML = returnComments(
       books[commentIndex].comments.length - 1,
       commentIndex
@@ -112,6 +105,6 @@ function addComment(commentIndex) {
 
 function fixPrice(i) {
   const priceRef = document.getElementById(`showPrice-${i}`);
-  let price = priceRef.innerHTML.replace(",", "."); // javascript cant work with komma
+  let price = priceRef.innerHTML.replace(",", ".");
   priceRef.innerHTML = parseFloat(price).toFixed(2).replace(".", ",") + ` EUR`;
 }
