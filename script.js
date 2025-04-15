@@ -43,8 +43,9 @@ function addUsername(usernameIndex) {
   const commentRef = document.getElementById(`comment-area-${usernameIndex}`);
   if (usernameRef.value !== "" && commentRef.value !== "") {
     let newUsernameValue = usernameRef.value;
+    let newCommentValue = commentRef.value;
     usernameRef.value = "";
-    books[usernameIndex].comments.push({ name: newUsernameValue });
+    books[usernameIndex].comments.push({ name: newUsernameValue, comment: newCommentValue }); //hier muss gleich das obejct mit comment gepusht werden um kein neues object für comment in addcomment() zu erstellen
     const usernamesRef = document.getElementById(`comments-section-${usernameIndex}`);
     const newUsernameHTML = returnUsernames(books[usernameIndex].comments.length - 1, usernameIndex);
     usernamesRef.innerHTML += newUsernameHTML;
@@ -60,14 +61,13 @@ function addComment(commentIndex) { //das argument kommt aus der function return
   if (commentRef.value !== "") {
     let newCommentValue = commentRef.value;
     commentRef.value = "";
-    books[commentIndex].comments.push({ comment: newCommentValue });
-    //den neuen kommentar an das bestehende DOM-Element anhängen - löst das problem das der gesamte inhalt gerender wird.
+/*     books[commentIndex].comments.push({ comment: newCommentValue });
+ */    //den neuen kommentar an das bestehende DOM-Element anhängen - löst das problem das der gesamte inhalt gerender wird.
     const commentsRef = document.getElementById(`comments-section-${commentIndex}`);
     //in returncomments argumente aus addcomment(); books[commentIndex].comments.length - 1 ergibt die index der neuen comments länge -1 weil index start ist 0
     const newCommentHTML = returnComments(books[commentIndex].comments.length - 1, commentIndex); 
     commentsRef.innerHTML += newCommentHTML;
-/*     console.log(books[commentIndex].comments); // PROBLEM 
- */    
+    console.log(books[commentIndex].comments); // PROBLEM 
   }
 }
 
@@ -76,3 +76,6 @@ function fixPrice(i) {
   const price = priceRef.innerHTML.replace(",", "."); // fehler hat zeit gekostet! - nur das löschen von EUR im span hat nicht geholfen, vergessen das JS nicht mit , kann 
   priceRef.innerHTML = parseFloat(price).toFixed(2);
 }
+
+
+//layout und dann local storage: 
