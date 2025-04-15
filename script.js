@@ -4,7 +4,7 @@ function init() {
   renderContent();
 }
 
-function renderContent(newCommentIndex) {
+function renderContent() {
   const contentRef = document.getElementById("content-area");
   for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
     contentRef.innerHTML += returnContent(bookIndex);
@@ -74,6 +74,6 @@ function addComment(commentIndex) { //das argument kommt aus der function return
 
 function fixPrice(i) {
   const priceRef = document.getElementById(`showPrice-${i}`);
-  const price = priceRef.innerHTML.replace(",", "."); // fehler hat zeit gekostet! - nur das löschen von EUR im span hat nicht geholfen, vergessen das JS nicht mit , kann 
-  priceRef.innerHTML = parseFloat(price).toFixed(2);
+  let price = priceRef.innerHTML.replace(",", "."); // fehler hat zeit gekostet! - nur das löschen von EUR im span hat nicht geholfen, vergessen das JS nicht mit , kann 
+  priceRef.innerHTML = parseFloat(price).toFixed(2).replace(".", ",");
 }
